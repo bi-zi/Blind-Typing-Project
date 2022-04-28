@@ -377,7 +377,7 @@ input[type='password']:focus {
 
 /* Control */
 .controls__elements {
-  margin: 130px auto 0 auto;
+  margin: 80px auto 0 auto;
   width: 1020px;
   font-size: 12px;
   align-items: center;
