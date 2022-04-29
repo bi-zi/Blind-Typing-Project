@@ -1,0 +1,24 @@
+{
+  "name": "blindtyping",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "type": "module",
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bi-zi/BlindTyping.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bi-zi/BlindTyping/issues"
+  },
+  "homepage": "https://github.com/bi-zi/BlindTyping#readme",
+  "dependencies": {
+    "express": "^4.18.0"
+  }
+}
