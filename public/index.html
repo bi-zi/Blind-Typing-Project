@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./image.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,27 +15,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="./public/style.css" />
 
-    <title>Blind typing training</title>
+    <title>Blind typing</title>
+
   </head>
   <body onkeydown="if(event.keyCode==9);">
     <header class="header" id="header">
       <div class="container">
         <div class="header__inner">
-
-
           <a
             class="header__logo"
             href="https://ru.wikipedia.org/wiki/%D0%9F%D0%B8%D1%88%D1%83%D1%89%D0%B0%D1%8F_%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D0%BA%D0%B0"
             data-scroll="#intro"
-            >
-            <img class="logo_inner" src="/assets/images/logo1.png" alt="" /><span class="logoName">Печатная машинка</span></a
+          >
+            <img class="logo_inner" src="/assets/images/logo1.png" alt="" /><span class="logoName"
+              >Печатная машинка</span
+            ></a
           >
 
           <div class="nav" id="nav">
-            <a
-              class="nav__link active"
-              href="http://127.0.0.1:5501/src/"
-              data-scroll="#about"
+            <a class="nav__link active" href="http://127.0.0.1:5501/src/" data-scroll="#about"
               >Перейти к тексту</a
             >
 
@@ -131,7 +130,6 @@
                 </p>
               </div>
             </div>
-
 
             <div id="closeIt" class="userEntrance" style="visibility: visible">
               <a class="nav__link" href="#modal__entrance" data-scroll="#works">Вход</a>
@@ -704,6 +702,5 @@
     </div>
     <!--scripts-->
     <script src="/src/index.js"></script>
-
   </body>
 </html>
