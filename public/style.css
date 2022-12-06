@@ -78,12 +78,6 @@ hr {
   width: 0px;
 }
 
-.block__leaders {
-  color: white;
-  padding-left: 320px;
-  font-size: 24px;
-}
-
 .close {
   position: absolute;
   margin-left: 685px;
@@ -93,25 +87,7 @@ hr {
   text-decoration: none;
 }
 
-#modal__entrance {
-  display: none;
-  pointer-events: none;
-}
 
-#modal__entrance:target {
-  display: flex;
-  pointer-events: auto;
-}
-
-#modal__register {
-  display: none;
-  pointer-events: none;
-}
-
-#modal__register:target {
-  display: flex;
-  pointer-events: auto;
-}
 
 #modal__technics {
   display: none;
@@ -122,14 +98,6 @@ hr {
   pointer-events: auto;
 }
 
-#modal__leaders {
-  display: none;
-  pointer-events: none;
-}
-#modal__leaders:target {
-  display: flex;
-  pointer-events: auto;
-}
 
 /* Technics modal*/
 .technics__h2 {
@@ -151,108 +119,6 @@ hr {
   margin-left: 25px;
   margin-right: 25px;
   color: white;
-}
-
-/* Register modal*/
-.block__register {
-  width: 400px;
-  height: 350px;
-  background-color: rgb(0, 0, 0);
-  color: white;
-  position: relative;
-  margin: 210px auto;
-  z-index: 10;
-  border-radius: 25px;
-}
-
-.close__register {
-  position: absolute;
-  margin-left: 370px;
-  margin-top: 10px;
-  color: rgb(255, 255, 255);
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.registerbtn {
-  background-color: #4caf50;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
-
-.registerbtn:hover {
-  opacity: 1;
-}
-
-input[type='text'],
-input[type='password'] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #c5c5c5;
-}
-
-input[type='text']:focus,
-input[type='password']:focus {
-  color: rgb(0, 0, 0);
-  outline: none;
-}
-
-.signin {
-  color: #ffffff;
-  text-align: center;
-}
-
-.signin a {
-  color: #0073ff;
-}
-
-/*Entrance*/
-
-.block__entrance {
-  width: 400px;
-  height: 350px;
-  background-color: rgb(0, 0, 0);
-  color: white;
-  position: relative;
-  margin: 210px auto;
-  z-index: 10;
-  border-radius: 25px;
-}
-
-.close__entrance {
-  position: absolute;
-  margin-left: 370px;
-  margin-top: 10px;
-  color: rgb(255, 255, 255);
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.close__entrance {
-  position: absolute;
-  margin-left: 370px;
-  margin-top: 10px;
-  color: rgb(255, 255, 255);
-  font-weight: bold;
-  text-decoration: none;
-}
-.entrancebtn {
-  background-color: #4caf50;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
 }
 
 /* Header */
@@ -318,10 +184,6 @@ input[type='password']:focus {
   transition: color 0.1s linear;
 }
 
-.userEntrance {
-  display: inline-block;
-}
-
 .nav__link:after {
   content: '';
   display: block;
@@ -343,12 +205,7 @@ input[type='password']:focus {
   color: #000000;
 }
 
-.userName {
-  display: inline-block;
-   vertical-align: top;
-  color: white;
-  margin-left: -60px;
-}
+
 
 /* Results */
 .results {
@@ -500,13 +357,8 @@ input[type='password']:focus {
   box-sizing: border-box;
 }
 
-.text__transform {
-  text-transform: uppercase;
-  font-weight: bold;
-}
 
 /* Row */
-
 .row {
   margin-right: 0;
   margin-left: 0;

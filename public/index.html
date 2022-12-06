@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./image.png">
+    <link rel="icon" type="image/svg+xml" href="./image.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,7 +16,6 @@
     <link rel="stylesheet" type="text/css" href="./public/style.css" />
 
     <title>Blind typing</title>
-
   </head>
   <body onkeydown="if(event.keyCode==9);">
     <header class="header" id="header">
@@ -33,10 +32,6 @@
           >
 
           <div class="nav" id="nav">
-            <a class="nav__link active" href="http://127.0.0.1:5501/src/" data-scroll="#about"
-              >Перейти к тексту</a
-            >
-
             <a class="nav__link" href="#modal__technics" data-scroll="#services">Техника печати</a>
             <div id="modal__technics" class="wrapper">
               <a class="substrate" href="#close__technics"></a>
@@ -130,81 +125,6 @@
                 </p>
               </div>
             </div>
-
-            <div id="closeIt" class="userEntrance" style="visibility: visible">
-              <a class="nav__link" href="#modal__entrance" data-scroll="#works">Вход</a>
-              <div id="modal__entrance" class="wrapper">
-                <a class="substrate" href="#close__entrance"></a>
-                <div class="block__entrance">
-                  <a class="close__entrance" href="#close__entrance">X</a>
-                  <span class="block__register"></span>
-                  <form class="entranceForm">
-                    <div class="container">
-                      <h2 class="technics__h2">Войти</h2>
-                      <br />
-                      <label for="nickName"><b>nickname</b></label>
-                      <input
-                        type="text"
-                        id="checkNickName"
-                        placeholder="nickName"
-                        required
-                        minlength="6"
-                      />
-
-                      <label for="psw"><b>Password</b></label>
-                      <input
-                        type="password"
-                        id="checkPassword"
-                        placeholder="Enter Password"
-                        required
-                        minlength="6"
-                      />
-
-                      <button type="submit" class="registerbtn" href="#close__entrance">Войти</button>
-                    </div>
-
-                    <div class="container signin">
-                      <p>
-                        Ещё нет аккаунта?
-                        <a href="#modal__register">Регестрация</a>.
-                      </p>
-                    </div>
-                  </form>
-                </div>
-              </div>
-
-              <a class="nav__link" href="#modal__register" data-scroll="#footer">Регистрация</a>
-              <div id="modal__register" class="wrapper">
-                <a class="substrate" href="#close__register"></a>
-                <div class="block__register">
-                  <a class="close__register" href="#close__register">X</a>
-                  <span class="block__register"></span>
-                  <form class="regform">
-                    <div class="container">
-                      <h2 class="technics__h2">Регестрация</h2>
-                      <br />
-
-                      <label for="nickName"><b>nickname</b></label>
-                      <input type="text" id="nickName" placeholder="nickName" required minlength="6" />
-
-                      <label for="psw"><b>Password</b></label>
-                      <input id="password" class="subscription-email" name="" type="password"
-                      placeholder="Enter Password" required minlength="6"/ >
-
-                      <button id="answer" type="submit" class="registerbtn">Зарегистрироваться</button>
-                    </div>
-
-                    <div class="container signin">
-                      <p>Есть аккаунт? <a href="#modal__entrance">Вход</a></p>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-
-            <a class="nav__link" id="userInfo" style="visibility: hidden">
-              <div class="userName" id="userName">userName</div>
-            </a>
           </div>
         </div>
       </div>
@@ -696,7 +616,7 @@
       <div class="container" id="showResults" style="visibility: hidden">
         <div class="results">
           <span class="speed" id="speed">Ваша скорость: <span></span> зн/м</span>
-          <span class="mistake" id="mistake">Ваши ошибки: <span></span></span>
+          <span class="mistake" id="mistake">Ваши ошибки: <span>0</span></span>
         </div>
       </div>
     </div>

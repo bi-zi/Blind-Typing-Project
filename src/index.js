@@ -19,36 +19,11 @@ let textStock = [
 let mainTxt = document.querySelector('.mainTxt');
 let randomText = textStock[getRandomInt(0, textStock.length - 1)].split('');
 let symbolIndex = 0;
-let sumErrors = 0;
-let timeHasGone = 0;
-let sumTime = 0;
-let amountOfTime = 0;
-
-// Имитация регистрации не добавляет функционала для пользователя\
-let regForm = document.querySelector('.regform');
-let users = { name: '', password: '' };
-regForm.onsubmit = function (evt) {
-  evt.preventDefault();
-  users.name = document.getElementById('nickName').value;
-  users.password = document.getElementById('password').value;
-  document.getElementById('nickName').value = '';
-  document.getElementById('password').value = '';
-};
-
-let entranceForm = document.querySelector('.entranceForm');
-  entranceForm.onsubmit = function (evt) {
-  evt.preventDefault();
-  if (
-    users.name === document.getElementById('checkNickName').value &&
-    users.password === document.getElementById('checkPassword').value
-  ) {
-    document.getElementById('closeIt').style.visibility = 'hidden';
-  }
-  if (document.getElementById('closeIt').style.visibility === 'hidden') {
-    document.getElementById('userInfo').style.visibility = 'visible';
-    document.getElementById('userName').innerHTML = users.name;
-  }
-};
+let sumErrors = 0
+let timeHasGone = 0
+let amountOfTime = 0
+let sumTime = 0
+let setIntervalId
 
 // Функия отправляет рандомное число от 0 до числа последнего текста
 function getRandomInt(min, max) {
@@ -68,9 +43,9 @@ newText.addEventListener('click', () => {
   // Отправляет данные для работы кода
   document.addEventListener('keyup', function (event) {
     clickHandling(event.code);
-    timeBetweenClicks(event.code);
   });
 });
+
 
 // Функция отображает клавиатуру и элемнты табло с текстом после нажатия кнопки (начать печатать)
 const showhide = (showBoardItems) => {
@@ -78,6 +53,8 @@ const showhide = (showBoardItems) => {
   BoardItems.style.visibility = BoardItems.style.visibility == 'hidden' ? 'visible' : 'hidden';
   document.getElementById('showKeyboard').style.visibility = 'visible';
   inputСharСolor();
+
+  setIntervalId = setInterval(() => netAverageSpeed(), 150, 'Таймер');
 };
 
 // Показ/скрытие клавиатуры при клике на иконку
@@ -115,6 +92,8 @@ restartText.addEventListener('click', () => {
 
 // Обработка нажимаемых клавиш и обработка ошибок
 const clickHandling = (smallKeys) => {
+
+
   // классу "mainTxt" находит символ или букву по индексу
   let textSymbol = mainTxt.childNodes[symbolIndex].textContent;
   inputСharСolor(symbolIndex);
@@ -148,6 +127,7 @@ const clickHandling = (smallKeys) => {
       (keyboardStyle === true && textSymbol != charFromKeyboard.toUpperCase())
     ) {
       mainTxt.childNodes[symbolIndex].className = 'red__backgroud';
+      if (symbolIndex < 1) return
       errorCounter(1);
     }
   } else if (smallKeys === 'Space' && textSymbol === ' ') {
@@ -166,8 +146,11 @@ const clickHandling = (smallKeys) => {
 const inputСharСolor = (symbolIndex) => {
   if (symbolIndex < mainTxt.childNodes.length) {
     mainTxt.childNodes.item(symbolIndex).className = 'yellow__backgroud';
+  } else if (symbolIndex >= mainTxt.childNodes.length) {
+    endOfText(symbolIndex);
+    clearInterval(setIntervalId);
   }
-  endOfText(symbolIndex);
+
 };
 
 // Функция показывает сумму ошибок
@@ -177,13 +160,6 @@ const errorCounter = (err) => {
   document.getElementById('mistake').getElementsByTagName('span').item(0).innerHTML = `${sumErrors}`;
 };
 
-// Функция показывает среднюю скорость котороя обновляется при клике
-const netAverageSpeed = (timeBetween) => {
-  amountOfTime += timeBetween;
-  document.getElementById('speed__min').textContent = Math.floor(
-    (symbolIndex / amountOfTime.toFixed(2)) * 60,
-  );
-};
 
 // Обработчик KEYDOWN
 document.addEventListener('keydown', (event) => {
@@ -248,64 +224,61 @@ function swapSymbol(checkShift) {
 
   changeableKeys.forEach(
     (x) =>
-      (document.getElementById(x).getElementsByTagName('span').item(1).textContent = `${
-        checkShift ? secondTypeOfKeys[i++] : firstTypeOfKeys[i++]
+    (document.getElementById(x).getElementsByTagName('span').item(1).textContent = `${checkShift ? secondTypeOfKeys[i++] : firstTypeOfKeys[i++]
       }`),
   );
 }
 
-// Функция считает время между прошлым кликом и настоящим кликом в миллисекундах после добавляет нули если нужно. К примеру если время между кликами 16 мсек, к отправляемому премени добавляется 0.0 итог (0.016) чтобы максимально точно считать время
-function timeBetweenClicks(smallKeys) {
-  if (
-    smallKeys != 'ShiftLeft' &&
-    smallKeys !== 'ShiftRight' &&
-    smallKeys != 'CapsLock' &&
-    smallKeys != 'Tab' &&
-    smallKeys != 'Enter' &&
-    smallKeys != 'Backspace'
-  ) {
-    if (!timeHasGone) timeHasGone = new Date().getTime();
-    else {
-      let timeStopped = new Date().getTime();
+// Функция считает среднюю скорость от времени первого правильного клика
+const netAverageSpeed = () => {
 
-      sumTime = String(timeStopped - timeHasGone);
-      if (sumTime.length < 2) {
-        sumTime1 = '0.00' + sumTime;
-        netAverageSpeed(+sumTime1);
-      }
-      if (sumTime.length === 2) {
-        sumTime2 = '0.0' + sumTime;
-        netAverageSpeed(+sumTime2);
-      }
-      if (sumTime.length === 3) {
-        sumTime3 = '0.' + sumTime;
-        netAverageSpeed(+sumTime3);
-      }
-      if (sumTime.length === 4) {
-        sumTime4 = sumTime.split('');
-        firstELemet = sumTime4.shift();
-        sumTime4.unshift(firstELemet, '.');
-        netAverageSpeed(+sumTime4.join(''));
-      }
-      if (sumTime.length === 5) {
-        sumTime5 = sumTime.split('');
-        firstELemet2 = sumTime5.shift();
-        SecondELemet = sumTime5.shift();
-        sumTime5.unshift(firstELemet2, SecondELemet, '.');
-        netAverageSpeed(+sumTime5.join(''));
-      }
-      timeHasGone = timeStopped;
+  if (symbolIndex < 1) return
+
+  if (!timeHasGone) timeHasGone = new Date().getTime();
+
+  else {
+    let timeStopped = new Date().getTime();
+
+    sumTime = String(timeStopped - timeHasGone);
+    amountOfTime = String(timeStopped - timeHasGone);
+    if (sumTime.length < 3) {
+      amountOfTime = '0.0' + amountOfTime;
+    }
+    if (sumTime.length === 3) {
+      amountOfTime = '0.' + amountOfTime;
+    }
+    if (sumTime.length === 4) {
+      amountOfTime = amountOfTime.split('').map((x, i) => i === 0 ? x + '.' : x).join('')
+    }
+    if (sumTime.length === 5) {
+      amountOfTime = amountOfTime.split('').map((x, i) => i === 1 ? x + '.' : x).join('')
+    }
+    if (sumTime.length === 6) {
+      amountOfTime = amountOfTime.split('').map((x, i) => i === 2 ? x + '.' : x).join('')
+
     }
   }
+
+  if (amountOfTime === 0) return
+  document.getElementById('speed__min').textContent = Math.floor(
+    (symbolIndex / amountOfTime) * 60,
+  );
+
 }
 
 // Вывод таблички с результатом
 function endOfText(symbolIndex) {
   if (symbolIndex === mainTxt.childNodes.length) {
     document.getElementById('showResults').style.visibility = 'visible';
-    document.getElementById('speed').getElementsByTagName('span').item(0).innerHTML = `${
-      Math.floor(symbolIndex / amountOfTime.toFixed(2)) * 60
-    }`;
+    document.getElementById('speed').getElementsByTagName('span').item(0).innerHTML = `${Math.floor(
+      (symbolIndex / amountOfTime) * 60,
+    )
+      }`;
+
+    document.getElementById('speed__min').textContent = Math.floor(
+      (symbolIndex / amountOfTime) * 60,
+    );
+
   }
 }
 
