@@ -11,5 +11,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log('OPEN --------->', 'http://localhost/');
+  console.log('OPEN --------->', 'http://localhost', );
 });

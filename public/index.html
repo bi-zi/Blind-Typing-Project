@@ -4,162 +4,148 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./image.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Andika&display=swap" rel="stylesheet" />
+
     <link
       rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
       crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap" rel="stylesheet" />
+
     <link rel="stylesheet" type="text/css" href="./public/style.css" />
 
     <title>Blind typing</title>
   </head>
-  <body onkeydown="if(event.keyCode==9);">
-    <header class="header" id="header">
-      <div class="container">
-        <div class="header__inner">
-          <a
-            class="header__logo"
-            href="https://ru.wikipedia.org/wiki/%D0%9F%D0%B8%D1%88%D1%83%D1%89%D0%B0%D1%8F_%D0%BC%D0%B0%D1%88%D0%B8%D0%BD%D0%BA%D0%B0"
-            data-scroll="#intro"
-          >
-            <img class="logo_inner" src="/assets/images/logo1.png" alt="" /><span class="logoName"
-              >Печатная машинка</span
-            ></a
-          >
 
-          <div class="nav" id="nav">
-            <a class="nav__link" href="#modal__technics" data-scroll="#services">Техника печати</a>
-            <div id="modal__technics" class="wrapper">
-              <a class="substrate" href="#close__technics"></a>
-              <div class="block">
-                <a class="close" href="#close__technics">X</a>
+  <body class="container" onkeydown="if(event.keyCode==9);">
+    <header class="header">
+      <img class="header-img" src="/assets/images/logo1.png" alt="logo" />
 
-                <h2 class="technics__h2">Исходная позиция</h2>
-                <p class="technics__guide1">
-                  Немного согни пальцы и положи их на клавиши ФЫВА и ОЛДЖ, которые находятся в среднем
-                  ряду. Эта строка называется ОСНОВНОЙ СТРОКОЙ, потому что ты всегда будешь начинать с
-                  этих клавиш и возвращаться к ним. <br /><br />
-                  На клавишах А и О, под указательными пальцами, находятся небольшие выступы. Они
-                  позволяют ориентироваться на клавиатуре вслепую.
-                </p>
+      <span class="header-name">Blind typing</span>
 
-                <h2 class="technics__h2">Схема клавиатуры</h2>
-                <br />
-                <img
-                  class="img__keyboard"
-                  width="600"
-                  src="/assets/images/keyboard.png"
-                  title="Схема клавиатуры"
-                  alt="Схема клавиатуры"
-                />
-                <p class="technics__guide1">
-                  Цвет клавиш на этой клавиатуре поможет тебе понять и запомнить, каким пальцем на какую
-                  клавишу нужно нажимать.
-                </p>
-                <ul class="technics__guide1">
-                  <li>Нажимай клавиши только тем пальцем, который для них предназначен.</li>
-                  <br />
-                  <li>Всегда возвращай пальцы в исходную позицию «ФЫВА – ОЛДЖ».</li>
-                  <br />
-                  <li>Когда набираешь текст, представляй расположение клавиш.</li>
-                  <br />
-                  <li>
-                    Установи ритм и соблюдай его, пока печатаешь. Нажимай на клавиши с одинаковым
-                    интервалом.
-                  </li>
-                  <br />
-                  <li>
-                    Клавишу SHIFT всегда нажимает мизинец с противоположной стороны от нужной буквы.
-                  </li>
-                  <br />
-                  <li>Пробел отбивай большим пальцем левой или правой руки, как тебе удобнее.</li>
-                </ul>
+      <div class="header__guide">
+        <span class="header__guide-text" onclick="showAlert()">Техника печати</span>
 
-                <br />
-                <h2 class="technics__h2">Движения пальцев</h2>
-                <br />
-                <p class="technics__guide1">
-                  Не подглядывай на клавиатуру во время печати. Просто скользи пальцами по клавишам, пока
-                  не найдешь основную строку.<br /><br />
-                  Ограничь движение кистей и пальцев до минимума, только чтобы нажимать нужные клавиши.
-                  Держи руки и пальцы как можно ближе к исходной позиции. Это увеличит скорость набора
-                  текста и снизит нагрузку на кисти.
-                  <br /><br />
-                  Следи за безымянными пальцами и мизинцами, так как они часто остаются
-                  незадействованными.
-                </p>
+        <div class="header__guide__box" id="cal33">
+          <div class="header__guide__box__item">
+            <i onclick="showAlert()" class="fa-solid fa-xmark header__guide__box__item-close"></i>
 
-                <h2 class="technics__h2">Скорость печати</h2>
-                <br />
-                <ul class="technics__guide1">
-                  <li>
-                    Не пытайся сразу печатать со скоростью света. Начинай ускоряться, только когда все 10
-                    пальцев привыкнут нажимать правильные клавиши.
-                  </li>
-                  <br />
-                  <li>
-                    Не торопись когда печатаешь, чтобы избежать ошибок. Скорость будет возрастать
-                    постепенно.
-                  </li>
-                  <br />
-                  <li>Всегда просматривай текст на одно-два слова вперед.</li>
-                  <br />
-                  <li>
-                    Пройди все уроки на клавиатурном тренажере Ratatype. И твоя скорость станет выше
-                    средней скорости печати.
-                  </li>
-                </ul>
+            <h2>Исходная позиция</h2>
 
-                <h2 class="technics__h2">Береги себя</h2>
+            <p>
+              Немного согни пальцы и положи их на клавиши ФЫВА и ОЛДЖ, которые находятся в среднем ряду.
+              Эта строка называется ОСНОВНОЙ СТРОКОЙ, потому что ты всегда будешь начинать с этих клавиш
+              и возвращаться к ним.
+            </p>
 
-                <p class="technics__guide1">
-                  Сделай паузу, если чувствуешь, что сбиваешься и делаешь много ошибок. Небольшой перерыв
-                  вернет силы и внимательность.
-                </p>
-                <p class="technics__info">
-                  Информация взята с сайта <a href="https://www.ratatype.ru/learn/">RATATYPE</a>
-                </p>
-              </div>
-            </div>
+            <p>
+              На клавишах А и О, под указательными пальцами, находятся небольшие выступы. Они позволяют
+              ориентироваться на клавиатуре вслепую.
+            </p>
+
+            <h2>Схема клавиатуры</h2>
+
+            <img
+              class="header__guide__box__item-img"
+              src="/assets/images/keyboard.png"
+              title="Схема клавиатуры"
+              alt="Схема клавиатуры"
+            />
+
+            <p>
+              Цвет клавиш на этой клавиатуре поможет тебе понять и запомнить, каким пальцем на какую
+              клавишу нужно нажимать.
+            </p>
+
+            <ul>
+              <li>Нажимай клавиши только тем пальцем, который для них предназначен.</li>
+
+              <li>Всегда возвращай пальцы в исходную позицию «ФЫВА – ОЛДЖ».</li>
+
+              <li>Когда набираешь текст, представляй расположение клавиш.</li>
+
+              <li>
+                Установи ритм и соблюдай его, пока печатаешь. Нажимай на клавиши с одинаковым интервалом.
+              </li>
+
+              <li>Клавишу SHIFT всегда нажимает мизинец с противоположной стороны от нужной буквы.</li>
+
+              <li>Пробел отбивай большим пальцем левой или правой руки, как тебе удобнее.</li>
+            </ul>
+
+            <h2>Движения пальцев</h2>
+
+            <p>
+              Не подглядывай на клавиатуру во время печати. Просто скользи пальцами по клавишам, пока не
+              найдешь основную строку.<br /><br />
+              Ограничь движение кистей и пальцев до минимума, только чтобы нажимать нужные клавиши. Держи
+              руки и пальцы как можно ближе к исходной позиции. Это увеличит скорость набора текста и
+              снизит нагрузку на кисти.
+              <br /><br />
+              Следи за безымянными пальцами и мизинцами, так как они часто остаются незадействованными.
+            </p>
+
+            <h2>Скорость печати</h2>
+            <ul>
+              <li>
+                Не пытайся сразу печатать со скоростью света. Начинай ускоряться, только когда все 10
+                пальцев привыкнут нажимать правильные клавиши.
+              </li>
+              <li>
+                Не торопись когда печатаешь, чтобы избежать ошибок. Скорость будет возрастать постепенно.
+              </li>
+              <li>Всегда просматривай текст на одно-два слова вперед.</li>
+              <li>
+                Пройди все уроки на клавиатурном тренажере Ratatype. И твоя скорость станет выше средней
+                скорости печати.
+              </li>
+            </ul>
+
+            <h2>Береги себя</h2>
+
+            <p>
+              Сделай паузу, если чувствуешь, что сбиваешься и делаешь много ошибок. Небольшой перерыв
+              вернет силы и внимательность.
+            </p>
           </div>
         </div>
       </div>
     </header>
 
-    <div class="controls__elements">
-      <div class="container" id="showBoardItems" style="visibility: hidden">
-        <div class="mistakes">
-          <b id="errors">0</b>
-          <span>ОШИБОК</span>
-        </div>
-        <div class="symbol__speed">
-          <b id="speed__min">0</b>
-          <span>ЗН/МИН</span>
+    <div class="text-panel">
+      <div class="text-panel__controls" id="showBoardItems" style="visibility: hidden">
+        <div class="text-panel__controls-items">
+          <span>
+            <b id="errors">0</b>
+            <span>ОШИБОК</span>
+          </span>
+
+          <span>
+            <b id="speed__min">0</b>
+            <span>ЗН/МИН</span>
+          </span>
         </div>
 
-        <a class="restart__icon" target="_blank">
-          <i class="fas fa-redo"></i>
-        </a>
+        <div class="text-panel__controls-items">
+          <i class="fas fa-redo" id="restart_icon"></i>
 
-        <a class="keyboard__icon" target="_blank">
-          <i class="far fa-keyboard"></i>
-        </a>
+          <i class="far fa-keyboard" id="keyboard__icon"></i>
+        </div>
       </div>
-    </div>
 
-    <!--Board-->
-    <div class="board">
-      <div class="board__text">
+      <div class="text-panel__board">
         <a href="javascript:showhide('showBoardItems')">
           <button class="start__typing" id="last" onclick="this.style.display='none';">
             Начать печатать
           </button>
         </a>
-        <div class="mainTxt" id="myList"></div>
+        <div class="text-panel__board-main-text" id="myList"></div>
       </div>
     </div>
 
@@ -167,452 +153,9 @@
     <div class="Keyboard" id="showKeyboard" style="visibility: hidden">
       <!--Normal keys-->
       <div class="keyboard__default">
-        <!--Ё 1 2 3 4 5 6 7 8 9 0 - = backSPASE-->
-        <div class="row">
-          <i class="keyboard__key__192" id="Backquote">
-            <div class="c0">
-              <span class="keyboard__container">
-                <span>ё</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__49" id="Digit1">
-            <div class="c1">
-              <span class="keyboard__container" id="one">
-                <span>1</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__50" id="Digit2">
-            <div class="c1">
-              <span class="keyboard__container">
-                <span>2</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__51" id="Digit3">
-            <div class="c2">
-              <span class="keyboard__container">
-                <span>3</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__52" id="Digit4">
-            <div class="c3">
-              <span class="keyboard__container">
-                <span>4</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__53" id="Digit5">
-            <div class="c4">
-              <span class="keyboard__container">
-                <span>5</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__54" id="Digit6">
-            <div class="c4">
-              <span class="keyboard__container">
-                <span>6</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__55" id="Digit7">
-            <div class="c5">
-              <span class="keyboard__container">
-                <span>7</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__56" id="Digit8">
-            <div class="c3">
-              <span class="keyboard__container">
-                <span>8</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__57" id="Digit9">
-            <div class="c2">
-              <span class="keyboard__container">
-                <span>9</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__48" id="Digit0">
-            <div class="c1">
-              <span class="keyboard__container">
-                <span>0</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__189" id="Minus">
-            <div class="c1">
-              <span class="keyboard__container">
-                <span>–</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__187" id="Equal">
-            <div class="c1">
-              <span class="keyboard__container">
-                <span>=</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__1008" id="Backspace">
-            <div class="kBack">
-              <span class="keyboard__container">
-                <span>←</span>
-              </span>
-            </div>
-          </i>
-        </div>
-        <!--Tab й ц у к е н г ш щ з х ъ \-->
-        <div class="row">
-          <i class="keyboard__key__1009" id="Tab">
-            <div class="kTab">
-              <span class="keyboard__container">
-                <span>Tab</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__81" id="KeyQ">
-            <div class="c1">
-              <span class="keyboard__container">
-                <span>й</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__87" id="KeyW">
-            <div class="c2">
-              <span class="keyboard__container">
-                <span>ц</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__69" id="KeyE">
-            <div class="c3">
-              <span class="keyboard__container">
-                <span>у</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__82" id="KeyR">
-            <div class="c4">
-              <span class="keyboard__container">
-                <span>к</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__84" id="KeyT">
-            <div class="c4 a">
-              <span class="keyboard__container">
-                <span>е</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__89" id="KeyY">
-            <div class="c5">
-              <span class="keyboard__container">
-                <span>н</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__85" id="KeyU">
-            <div class="c5">
-              <span class="keyboard__container">
-                <span>г</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__73" id="KeyI">
-            <div class="c3">
-              <span class="keyboard__container">
-                <span>ш</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__79" id="KeyO">
-            <div class="c2">
-              <span class="keyboard__container">
-                <span>щ</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__80" id="KeyP">
-            <div class="c1">
-              <span class="keyboard__container">
-                <span>з</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__219" id="BracketLeft">
-            <div class="c1">
-              <span class="keyboard__container">
-                <span>х</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__221" id="BracketRight">
-            <div class="c1">
-              <span class="keyboard__container">
-                <span>ъ</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__220" id="Backslash">
-            <div class="kSlash">
-              <span class="keyboard__container">
-                <span>\</span>
-              </span>
-            </div>
-          </i>
-        </div>
-
-        <!--Caps ф ы в а п р о л д ж э Enter-->
-        <div class="row">
-          <i class="keyboard__key__1020" id="CapsLock">
-            <div class="kCaps">
-              <span class="keyboard__container">
-                <span>Caps</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__65" id="KeyA">
-            <div class="c1">
-              <span class="keyboard__container">
-                <span>ф</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__83" id="KeyS">
-            <div class="c2">
-              <span class="keyboard__container">
-                <span>ы</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__68" id="KeyD">
-            <div class="c3">
-              <span class="keyboard__container">
-                <span>в</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__70" id="KeyF">
-            <div class="c4">
-              <span class="keyboard__container">
-                <span>а</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__71" id="KeyG">
-            <div class="c4">
-              <span class="keyboard__container">
-                <span>п</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__72" id="KeyH">
-            <div class="c5">
-              <span class="keyboard__container">
-                <span>р</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__74" id="KeyJ">
-            <div class="c5">
-              <span class="keyboard__container">
-                <span>о</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__75" id="KeyK">
-            <div class="c3">
-              <span class="keyboard__container">
-                <span>л</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__76" id="KeyL">
-            <div class="c2">
-              <span class="keyboard__container">
-                <span>д</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__186" id="Semicolon">
-            <div class="c1">
-              <span class="keyboard__container">
-                <span>ж</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__222" id="Quote">
-            <div class="c1">
-              <span class="keyboard__container">
-                <span>э</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__1013" id="Enter">
-            <div class="kEnter">
-              <span class="keyboard__container">
-                <span>Enter</span>
-              </span>
-            </div>
-          </i>
-        </div>
-
-        <!--Shift я ч с м и т ь б ю . Shift-->
-        <div class="row">
-          <i class="keyboard__key__1016" id="ShiftLeft">
-            <div class="ShiftLeft">
-              <span class="keyboard__container">
-                <span>Shift</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__90" id="KeyZ">
-            <div class="c1">
-              <span class="keyboard__container">
-                <span>я</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__88" id="KeyX">
-            <div class="c2">
-              <span class="keyboard__container">
-                <span>ч</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__67" id="KeyC">
-            <div class="c3">
-              <span class="keyboard__container">
-                <span>с</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__86" id="KeyV">
-            <div class="c4">
-              <span class="keyboard__container">
-                <span>м</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__66" id="KeyB">
-            <div class="c4">
-              <span class="keyboard__container">
-                <span>и</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__78" id="KeyN">
-            <div class="c5">
-              <span class="keyboard__container">
-                <span>т</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__77" id="KeyM">
-            <div class="c5">
-              <span class="keyboard__container">
-                <span>ь</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__188" id="Comma">
-            <div class="c3">
-              <span class="keyboard__container">
-                <span>б</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__190" id="Period">
-            <div class="c2">
-              <span class="keyboard__container">
-                <span>ю</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__191" id="Slash">
-            <div class="c1">
-              <span class="keyboard__container">
-                <span>.</span>
-              </span>
-            </div>
-          </i>
-
-          <i class="keyboard__key__1017" id="ShiftRight">
-            <div class="ShiftRight">
-              <span class="keyboard__container">
-                <span>Shift</span>
-              </span>
-            </div>
-          </i>
-        </div>
-
-        <!--Space-->
-        <div class="row">
-          <i class="keyboard__key__1032" id="Space">
-            <div class="kSpace">
-              <span class="keyboard__container">
-                <span> </span>
-              </span>
-            </div>
-          </i>
-        </div>
+       
       </div>
+
       <div class="container" id="showResults" style="visibility: hidden">
         <div class="results">
           <span class="speed" id="speed">Ваша скорость: <span></span> зн/м</span>
@@ -620,6 +163,7 @@
         </div>
       </div>
     </div>
+
     <!--scripts-->
     <script src="/src/index.js"></script>
   </body>
