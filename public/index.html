@@ -30,11 +30,11 @@
       <span class="header-name">Blind typing</span>
 
       <div class="header__guide">
-        <span class="header__guide-text" onclick="showAlert()">Техника печати</span>
+        <span class="header__guide-text" id="showGuide">Техника печати</span>
 
-        <div class="header__guide__box" id="cal33">
+        <div class="header__guide__box" id="headerGuide">
           <div class="header__guide__box__item">
-            <i onclick="showAlert()" class="fa-solid fa-xmark header__guide__box__item-close"></i>
+            <i class="fa-solid fa-xmark header__guide__box__item-close" id="closeGuide"></i>
 
             <h2>Исходная позиция</h2>
 
@@ -119,7 +119,7 @@
     </header>
 
     <div class="text-panel">
-      <div class="text-panel__controls" id="showBoardItems" style="visibility: hidden">
+      <div class="text-panel__controls" id="showBoardItems">
         <div class="text-panel__controls-items">
           <span>
             <b id="errors">0</b>
@@ -130,41 +130,42 @@
             <b id="speed__min">0</b>
             <span>ЗН/МИН</span>
           </span>
+
+          <span>
+            <b id="time">0</b>
+            <span>Секундомер</span>
+          </span>
+
+          <span>
+            <b id="textLength">0</b>
+            <span>Cимволов</span>
+          </span>
         </div>
 
         <div class="text-panel__controls-items">
-          <i class="fas fa-redo" id="restart_icon"></i>
+          <i class="fas fa-redo" id="restartIcon"></i>
 
-          <i class="far fa-keyboard" id="keyboard__icon"></i>
+          <i class="far fa-keyboard" id="keyboardIcon"></i>
         </div>
       </div>
 
       <div class="text-panel__board">
-        <a href="javascript:showhide('showBoardItems')">
-          <button class="start__typing" id="last" onclick="this.style.display='none';">
-            Начать печатать
-          </button>
-        </a>
+        <button class="start__typing" id="closePanel">Начать печатать</button>
         <div class="text-panel__board-main-text" id="myList"></div>
       </div>
     </div>
 
-    <!--Keyboard-->
-    <div class="Keyboard" id="showKeyboard" style="visibility: hidden">
-      <!--Normal keys-->
-      <div class="keyboard__default">
-       
-      </div>
+    <div class="keyboard" id="showKeyboard">
+      <div class="keyboard__keys"></div>
+    </div>
 
-      <div class="container" id="showResults" style="visibility: hidden">
-        <div class="results">
-          <span class="speed" id="speed">Ваша скорость: <span></span> зн/м</span>
-          <span class="mistake" id="mistake">Ваши ошибки: <span>0</span></span>
-        </div>
+    <div class="container" id="showResults" style="visibility: hidden">
+      <div class="results">
+        <span class="speed" id="speed">Ваша скорость: <span></span> зн/м</span>
+        <span class="mistake" id="mistake">Ваши ошибки: <span>0</span></span>
       </div>
     </div>
 
-    <!--scripts-->
-    <script src="/src/index.js"></script>
+    <script type="module" src="/src/index.js"></script>
   </body>
 </html>
