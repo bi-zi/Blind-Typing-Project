@@ -286,6 +286,9 @@ const fifth = [
 const keyboardKeys = [first, second, third, fourth, fifth]
 
 
+console.log()
+
+
 export const generateKeyboard = () => {
   let keys = ''
   const keyboard = document.querySelector('.keyboard__keys')
@@ -293,12 +296,12 @@ export const generateKeyboard = () => {
   for (let i = 0; i < keyboardKeys.length; i++) {
     const arr = []
     for (let j = 0; j < keyboardKeys[i].length; j++) {
-      keys = `<i id="${keyboardKeys[i][j].id}" ><div class="${keyboardKeys[i][j].divClass}">${keyboardKeys[i][j].symbol}</div></i>`
+      keys = `<i id="${keyboardKeys[i][j].id}" ><div class="${keyboardKeys[i][j].divClass}" id="keyId${keyboardKeys[i][j].symbol}">${keyboardKeys[i][j].symbol}</div></i>`
 
       arr.push(keys)
 
       if (j === keyboardKeys[i].length - 1) {
-        const element = `<div class="row">${arr.join(' ')}</div>`
+        const element = `<div class="row" id="rowId${i}">${arr.join(' ')}</div>`
 
         keyboard.insertAdjacentHTML('beforeend', element)
       }

@@ -1,22 +1,27 @@
+
 export const upperCaseHandler = (e) => {
 
   if (!e.repeat) {
     keySwapColor(e, false);
   }
-  if (
-    e.code === 'CapsLock' &&
-    document.getElementById('one').getElementsByTagName('span').item(0).innerHTML === '!'
-  ) {
-    document.getElementById('showKeyboard').classList.toggle('text__transform');
-    swapSymbols(false);
-  } else if (
-    e.code === 'CapsLock' &&
-    document.getElementById('one').getElementsByTagName('span').item(0).innerHTML === '1'
-  ) {
-    document.getElementById('showKeyboard').classList.toggle('text__transform');
-    swapSymbols(true);
+
+  const checkSystemCaps = e.getModifierState('CapsLock')
+  if (e.code === 'CapsLock' || checkSystemCaps) {
+    const lowerCase = document.getElementById('Digit1').getElementsByTagName('div')[0].childNodes[0].textContent === '1'
+    const upperCase = document.getElementById('Digit1').getElementsByTagName('div')[0].childNodes[0].textContent === '!'
+
+    if (upperCase) {
+      document.getElementById('showKeyboard').classList.toggle('text__transform');
+      swapSymbols(false);
+    }
+
+    if (lowerCase) {
+      document.getElementById('showKeyboard').classList.toggle('text__transform');
+      swapSymbols(true);
+    }
   }
 }
+
 
 
 export const keySwapColor = (e, timer) => {
@@ -57,7 +62,7 @@ export const swapSymbols = (checkShift) => {
   let secondTypeOfKeys = ['!', '"', '№', ';', '%', ':', '?', '*', '(', ')', '_', '+', ','];
   let firstTypeOfKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '.'];
   let i = 0;
-
+  
   changeableKeys.forEach(
     (x) =>
     (document.getElementById(x).getElementsByTagName('div')[0].childNodes[0].textContent = `${checkShift ? secondTypeOfKeys[i++] : firstTypeOfKeys[i++]

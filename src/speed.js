@@ -1,12 +1,15 @@
-
-let sumTime = 0
 let timeHasGone = 0
+let sumTime = 0
 let amountOfTime = 0
 
-export const netAverageSpeed = (symbolIndex) => {
+
+
+export const netAverageSpeed = (symbolIndex, restart) => {
+  timeHasGone = restart ? 0 : timeHasGone
+  sumTime = restart ? 0 : sumTime
+  amountOfTime = restart ? 0 : amountOfTime
 
   if (!timeHasGone) timeHasGone = new Date().getTime();
-
   else {
     let timeStopped = new Date().getTime();
 
@@ -34,4 +37,5 @@ export const netAverageSpeed = (symbolIndex) => {
   document.getElementById('time').textContent = amountOfTime
 
   return amountOfTime
+
 }

@@ -1,10 +1,9 @@
 import { netAverageSpeed } from "./speed.js";
-import { selectedText } from "./texts.js";
+import { selectedText } from "./randomText.js";
 
 
 export const results = (symbolIndex) => {
   const amountOfTime = netAverageSpeed()
-
 
   if (symbolIndex === selectedText.childNodes.length) {
     document.getElementById('showResults').style.visibility = 'visible';

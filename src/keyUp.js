@@ -1,13 +1,9 @@
 import { inputСharСolor } from "./charColors.js";
-import { selectedText } from "./texts.js";
+import { selectedText } from "./randomText.js";
 import { netAverageSpeed } from "./speed.js";
 
-let symbolIndex = 0;
-let sumErrors = 0
-
 export const clickHandling = (smallKeys) => {
-  let uselessKeys = smallKeys === 'Tab' || smallKeys === 'Enter' || smallKeys === 'Backspace'
-  if (uselessKeys) return
+  let symbolIndex = +sessionStorage.getItem('symbolIndex');
 
   let keyboardStyle = ''
   // классу "selectedText" находит символ или букву по индексу
@@ -31,19 +27,19 @@ export const clickHandling = (smallKeys) => {
     if (textSymbol === charFromKeyboard && keyboardStyle === false) {
       selectedText.childNodes[symbolIndex++].className = 'green__backgroud';
       inputСharСolor(symbolIndex);
-      netAverageSpeed(symbolIndex)
+      netAverageSpeed(symbolIndex, false)
     }
     if (textSymbol === charFromKeyboard.toUpperCase() && keyboardStyle === true) {
       selectedText.childNodes[symbolIndex++].className = 'green__backgroud';
       inputСharСolor(symbolIndex);
-      netAverageSpeed(symbolIndex)
+      netAverageSpeed(symbolIndex,false)
     } else if (
       textSymbol != charFromKeyboard ||
       (keyboardStyle === true && textSymbol != charFromKeyboard.toUpperCase())
     ) {
       selectedText.childNodes[symbolIndex].className = 'red__backgroud';
       if (symbolIndex < 1) return
-      errorCounter(1);
+      errorCounter(1, false);
     }
   } else if (smallKeys === 'Space' && textSymbol === ' ') {
     let bigCharFromKeyboard = document
@@ -52,23 +48,29 @@ export const clickHandling = (smallKeys) => {
     if ((textSymbol === bigCharFromKeyboard && keyboardStyle === false) || keyboardStyle === true) {
       selectedText.childNodes[symbolIndex++].className = 'green__backgroud';
       inputСharСolor(symbolIndex);
-      netAverageSpeed(symbolIndex)
+      netAverageSpeed(symbolIndex, false)
     }
   }
+
+  sessionStorage.setItem('symbolIndex', symbolIndex);
 
   return symbolIndex
 };
 
-
 export const setIntervalId = setInterval(() => {
+  let symbolIndex = +sessionStorage.getItem('symbolIndex')
+
   if (symbolIndex > 0) {
-    netAverageSpeed(symbolIndex)
+    netAverageSpeed(symbolIndex, false)
   }
 }, 1);
 
+let sumErrors = 0
 // Функция показывает сумму ошибок
-const errorCounter = (err) => {
+export const errorCounter = (err, restart) => {
+  sumErrors = restart ? 0 : sumErrors
   sumErrors += err;
+
   document.getElementById('errors').textContent = sumErrors;
   document.getElementById('mistake').getElementsByTagName('span').item(0).innerHTML = `${sumErrors}`;
 };

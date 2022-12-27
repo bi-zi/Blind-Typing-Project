@@ -11,7 +11,7 @@ body {
   font-family: 'Andika', sans-serif;
 
   color: white;
-  background-color: rgb(88, 88, 88);
+  background-color: rgb(39, 39, 39);
 
   overflow: hidden;
   user-select: none;
@@ -145,7 +145,7 @@ h6 {
 }
 
 .text-panel__controls-items {
-  margin: 0 2vw;
+  margin: 0 1vw;
 }
 
 .text-panel__controls-items span {
@@ -286,6 +286,7 @@ h6 {
   font-family: 'Andika', sans-serif;
 
   border-radius: 6px;
+
   box-shadow: 1px 2px 5px black;
 
   user-select: none;
@@ -300,28 +301,32 @@ div.swapColor {
   background-color: rgb(0, 0, 0);
 }
 
+.keyHover {
+  box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 1) !important;
+}
+
 .row div.c0 {
-  background-color: #0084ff;
+  background-color: #0084ff !important;
 }
 
 .row div.c1 {
-  background-color: rgb(252, 75, 75);
+  background-color: rgb(252, 75, 75) !important;
 }
 
 .row div.c2 {
-  background-color: rgb(62, 190, 45);
+  background-color: rgb(62, 190, 45) !important;
 }
 
 .row div.c3 {
-  background-color: rgb(248, 162, 50);
+  background-color: rgb(248, 162, 50) !important;
 }
 
 .row div.c4 {
-  background-color: rgb(231, 61, 253);
+  background-color: rgb(231, 61, 253) !important;
 }
 
 .row div.c5 {
-  background-color: rgb(159, 51, 209);
+  background-color: rgb(159, 51, 209) !important;
 }
 
 /* Keyboard keys */
