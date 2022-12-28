@@ -2,7 +2,7 @@ import { texts } from "./texts.js";
 
 
 export const getRandomText = () => {
- const minimum = Math.ceil(0);
+ const minimum = 0;
  const maximum = Math.floor(texts.length - 1);
 
  const randomText = texts[Math.floor(Math.random() * (maximum - minimum)) + minimum].split('')

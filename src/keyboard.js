@@ -286,8 +286,6 @@ const fifth = [
 const keyboardKeys = [first, second, third, fourth, fifth]
 
 
-console.log()
-
 
 export const generateKeyboard = () => {
   let keys = ''
@@ -296,7 +294,7 @@ export const generateKeyboard = () => {
   for (let i = 0; i < keyboardKeys.length; i++) {
     const arr = []
     for (let j = 0; j < keyboardKeys[i].length; j++) {
-      keys = `<i id="${keyboardKeys[i][j].id}" ><div class="${keyboardKeys[i][j].divClass}" id="keyId${keyboardKeys[i][j].symbol}">${keyboardKeys[i][j].symbol}</div></i>`
+      keys = `<i id="${keyboardKeys[i][j].id}" ><div class="${keyboardKeys[i][j].divClass}" id="keyId${keyboardKeys[i][j].symbol}">${keyboardKeys[i][j].symbol}${keyboardKeys[i][j].symbol === 'а' || keyboardKeys[i][j].symbol === 'о' ? `<span class="forefinger"></span>` : ''}</div></i>`
 
       arr.push(keys)
 

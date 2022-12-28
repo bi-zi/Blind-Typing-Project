@@ -45,8 +45,18 @@ document.getElementById('closePanel').addEventListener('click', (e) => {
   });
 
   document.addEventListener('keydown', (e) => {
-    upperCaseHandler(e)
+
+    const valid = validation(e.code)
+
+    if (valid) {
+      upperCaseHandler(e)
+    }
+
   });
+
+  document.getElementById('errors').textContent = 0;
+  document.getElementById('speed__min').textContent = 0;
+  document.getElementById('time').textContent = 0;
 
 })
 
@@ -54,7 +64,7 @@ document.getElementById('closePanel').addEventListener('click', (e) => {
 // При нажатие на кнопку обновления сбрасывает все необходимые данные для работы с текстом
 
 const restartText = document.getElementById('restartIcon');
-restartText.addEventListener('click', () => {
+restartText.addEventListener('click', (e) => {
 
   // Очищает поля для текста
   document.querySelector('.text-panel__board-main-text').innerHTML = '';
@@ -69,14 +79,18 @@ restartText.addEventListener('click', () => {
 
   sessionStorage.setItem('symbolIndex', 0);
 
+
   netAverageSpeed(0, true)
   errorCounter(0, true)
 
   generateKeyboard()
 
-  getRandomText();
+  getRandomText()
+
+  upperCaseHandler(e)
 
   inputСharСolor(0);
+
 });
 
 

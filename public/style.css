@@ -276,6 +276,7 @@ h6 {
 }
 
 .row div {
+  position: relative;
   width: 46px;
   height: 46px;
 
@@ -294,7 +295,7 @@ h6 {
 }
 
 .row div:hover {
-  border: 2px solid white;
+  box-shadow: 0px 0px 0px 3px rgb(252, 251, 251) !important;
 }
 
 div.swapColor {
@@ -303,6 +304,41 @@ div.swapColor {
 
 .keyHover {
   box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 1) !important;
+}
+
+.forefinger {
+  position: absolute;
+
+  margin: 0 auto;
+
+  width: 20px;
+  height: 4px;
+
+  right: 0;
+  bottom: 4px;
+  left: 0;
+
+  border-radius: 20%;
+
+  background-color: rgb(255, 254, 254);
+}
+
+@keyframes myAnim {
+  0%,
+  50%,
+  100% {
+    box-shadow: 0px 0px 0px 3px #050505;
+  }
+
+  25%,
+  75% {
+    box-shadow: 0px 0px 0px 3px #fdfdfd;
+  }
+}
+
+.blink7 {
+  animation: myAnim 2s infinite;
+  background: #000;
 }
 
 .row div.c0 {
@@ -366,11 +402,11 @@ div.swapColor {
 }
 
 .kSpace {
-  position: absolute;
+  position: absolute !important;
 
   margin: 0 auto;
 
-  width: 60% !important;
+  width: 400px !important;
 
   left: 0;
   right: 0;

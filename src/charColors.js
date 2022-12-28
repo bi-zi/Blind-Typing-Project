@@ -7,55 +7,78 @@ export const inputСharСolor = (symbolIndex) => {
   if (symbolIndex < selectedText.childNodes.length) {
     selectedText.childNodes.item(symbolIndex).className = 'yellow__backgroud';
 
-    // const hiddenCharacters = ['!', '"', '№', ';', '%', ':', '?', '*', '(', ')', '_', '+', ',']
-    // const keys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '.']
+    const shiftSymbols = ['!', '"', '№', ';', '%', ':', '?', '*', '(', ')', '_', '+', ',']
+    const keys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '.']
 
-    // const selectedSymbol = selectedText.childNodes.item(symbolIndex > 0 ? symbolIndex - 1 : symbolIndex).textContent
-    // const selectedSymbol = selectedText.childNodes.item(symbolIndex > 0 ? symbolIndex - 1 : symbolIndex).textContent
-    // const index = hiddenCharacters.findIndex(x => x === selectedSymbol)
-    // console.log(index)
+    const findLastSymbol = symbolIndex > 0 ? symbolIndex - 1 : symbolIndex
 
-    // if (index === -1) {
-    //   console.log(1)
-    //   document.getElementById(`keyId${selectedSymbol.toLowerCase()}`).classList.add('keyHover')
-    // } else {
-    //   console.log(2)
-    //   document.getElementById(keys[index]).classList.add('keyHover')
-    // }
+    const selectedIndex = shiftSymbols.findIndex(x => x === selectedText.childNodes.item(symbolIndex).textContent)
 
-    // console.log(selectedSymbol)
+    const lastIndex = shiftSymbols.findIndex(x => x === selectedText.childNodes.item(findLastSymbol).textContent)
 
+    const lastShownChar = selectedText.childNodes.item(findLastSymbol).textContent
+    const lastShown = document.getElementById(`keyId${lastShownChar.toLowerCase()}`)
 
-    // const keyboardBehindId = `keyId${selectedSymbol.textContent.toLowerCase()}}`
+    const selectedShownChar = selectedText.childNodes.item(symbolIndex).textContent
+    const selectedShown = document.getElementById(`keyId${selectedShownChar.toLowerCase()}`)
 
-    // const keyboardKeyId = `keyId${selectedText.childNodes.item(symbolIndex).textContent.toLowerCase()}`
+    const lastBigChar = lastShownChar.match(/[а-я]/i) && lastShownChar === lastShownChar.toUpperCase() ? true : false
+    const selectedBigChar = selectedShownChar.match(/[а-я]/i) && selectedShownChar === selectedShownChar.toUpperCase() ? true : false
 
+    const lastHidden = document.getElementById(`keyId${keys[lastIndex]}`)
+    const hidden = document.getElementById(`keyId${keys[selectedIndex]}`)
 
+    const shift = document.getElementById(`keyIdShift`)
 
 
+    if (selectedShown !== null) {
 
-    // const index = hiddenCharacters.findIndex(x => x === selectedSymbol)
+      if (lastShown !== null) {
+        if (lastShown.classList.contains('keyHover')) {
+          lastShown.classList.remove('keyHover')
 
-    // console.log(keyboardBehindId)
+          lastBigChar ? shift.classList.remove('blink7') : null
+        }
+      }
 
-    // if (document.getElementById(keyboardBehindId).classList.contains('keyHover') && index !== -1) {
-    //   document.getElementById(keyboardBehindId).classList.remove('keyHover')
-    // }
+      if (lastHidden !== null) {
+        if (lastHidden.classList.contains('keyHover')) {
+          lastHidden.classList.remove('keyHover')
+          shift.classList.remove('blink7')
+        }
+      }
+
+      if (selectedShown !== null) {
+
+        selectedShown.classList.add('keyHover')
+
+        selectedBigChar ? shift.classList.add('blink7') : null
+
+      }
+
+    } else {
 
 
-    // if (index !== -1) {
 
-    //   if (document.getElementById(`keyId${keys[index]}`).classList.contains('keyHover')) {
-    //     document.getElementById(`keyId${keys[index]}`).classList.remove('keyHover')
-    //   }
+      if (lastShown !== null) {
+        if (lastShown.classList.contains('keyHover')) {
+          lastShown.classList.remove('keyHover')
+          lastBigChar ? shift.classList.remove('blink7') : null
+        }
+      }
 
-    //   document.getElementById(`keyId${keys[index]}`).classList.add('keyHover')
-    // } else {
+      if (lastHidden !== null) {
+        if (lastHidden.classList.contains('keyHover')) {
+          lastHidden.classList.remove('keyHover')
+          shift.classList.remove('blink7')
+        }
+      }
 
-
-    //   document.getElementById(keyboardKeyId).classList.add('keyHover')
-    // }
-
+      if (hidden !== null) {
+        hidden.classList.add('keyHover')
+        shift.classList.add('blink7')
+      }
+    }
 
 
   } else if (symbolIndex >= selectedText.childNodes.length) {

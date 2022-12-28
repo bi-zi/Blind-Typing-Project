@@ -8,7 +8,6 @@ export const clickHandling = (smallKeys) => {
   let keyboardStyle = ''
   // классу "selectedText" находит символ или букву по индексу
   let textSymbol = selectedText.childNodes[symbolIndex].textContent;
-  inputСharСolor(symbolIndex);
 
   // Если шифт или капс зачат(true) классу "Keyboard" добавляется класс "keyboardStyle" это изменяет вводимые буквы на большие и заменяет символы
   document.querySelector('.text__transform') ? (keyboardStyle = true) : (keyboardStyle = false);
