@@ -1,10 +1,10 @@
-import { getRandomText } from "./randomText.js";
-import { generateKeyboard } from "./keyboard.js";
-import { clickHandling, startInterval, errorCounter } from "./keyUp.js";
-import { inputСharСolor } from './charColors.js'
-import { netAverageSpeed } from "./speed.js";
-import { capsHandler } from "./KeyDown.js";
-import { validation, switchCaseValidation } from "./codeValidation.js";
+import { getRandomText } from "./_randomText.js";
+import { generateKeyboard } from "./_keyboard.js";
+import { clickHandling, startInterval, errorCounter } from "./_keyUp.js";
+import { inputСharСolor } from './_charColors.js'
+import { netAverageSpeed } from "./_speed.js";
+import { capsHandler } from "./_keyDown.js";
+import { validation, switchCaseValidation } from "./_codeValidation.js";
 
 document.getElementById('showGuide').addEventListener('click', () => {
   document.getElementById('headerGuide').style.display = 'block';

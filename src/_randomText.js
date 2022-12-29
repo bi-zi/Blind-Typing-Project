@@ -1,4 +1,4 @@
-import { texts } from "./texts.js";
+import { texts } from "./_texts.js";
 
 
 export const getRandomText = () => {

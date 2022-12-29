@@ -1,5 +1,5 @@
-import { selectedText } from "./randomText.js";
-import { results } from "./results.js";
+import { selectedText } from "./_randomText.js";
+import { results } from "./_results.js";
 
 export const inputСharСolor = (symbolIndex) => {
 
