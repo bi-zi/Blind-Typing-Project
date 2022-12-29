@@ -1,5 +1,4 @@
 import { selectedText } from "./randomText.js";
-import { setIntervalId } from "./keyUp.js";
 import { results } from "./results.js";
 
 export const inputСharСolor = (symbolIndex) => {
@@ -83,7 +82,26 @@ export const inputСharСolor = (symbolIndex) => {
 
   } else if (symbolIndex >= selectedText.childNodes.length) {
     results(symbolIndex);
-    clearInterval(setIntervalId);
+    clearInterval(sessionStorage.intervalId);
   }
 
 };
+
+
+
+
+export const keySwapColor = (e, timer) => {
+  const key = document.getElementById(e.code)
+
+  if (key !== null) {
+    if (timer) {
+
+      setTimeout(() => {
+        key.getElementsByTagName('div').item(0).classList.toggle('clickSwapColor');
+      }, 35)
+
+    } else {
+      key.getElementsByTagName('div').item(0).classList.toggle('clickSwapColor')
+    }
+  }
+}

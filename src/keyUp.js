@@ -2,12 +2,15 @@ import { inputСharСolor } from "./charColors.js";
 import { selectedText } from "./randomText.js";
 import { netAverageSpeed } from "./speed.js";
 
+
+
 export const clickHandling = (smallKeys) => {
   let symbolIndex = +sessionStorage.getItem('symbolIndex');
-
   let keyboardStyle = ''
   // классу "selectedText" находит символ или букву по индексу
   let textSymbol = selectedText.childNodes[symbolIndex].textContent;
+
+  if (sessionStorage.intervalId) startInterval()
 
   // Если шифт или капс зачат(true) классу "Keyboard" добавляется класс "keyboardStyle" это изменяет вводимые буквы на большие и заменяет символы
   document.querySelector('.text__transform') ? (keyboardStyle = true) : (keyboardStyle = false);
@@ -26,12 +29,12 @@ export const clickHandling = (smallKeys) => {
     if (textSymbol === charFromKeyboard && keyboardStyle === false) {
       selectedText.childNodes[symbolIndex++].className = 'green__backgroud';
       inputСharСolor(symbolIndex);
-      netAverageSpeed(symbolIndex, false)
+      netAverageSpeed(symbolIndex, false, true)
     }
     if (textSymbol === charFromKeyboard.toUpperCase() && keyboardStyle === true) {
       selectedText.childNodes[symbolIndex++].className = 'green__backgroud';
       inputСharСolor(symbolIndex);
-      netAverageSpeed(symbolIndex,false)
+      netAverageSpeed(symbolIndex, false, true)
     } else if (
       textSymbol != charFromKeyboard ||
       (keyboardStyle === true && textSymbol != charFromKeyboard.toUpperCase())
@@ -47,7 +50,7 @@ export const clickHandling = (smallKeys) => {
     if ((textSymbol === bigCharFromKeyboard && keyboardStyle === false) || keyboardStyle === true) {
       selectedText.childNodes[symbolIndex++].className = 'green__backgroud';
       inputСharСolor(symbolIndex);
-      netAverageSpeed(symbolIndex, false)
+      netAverageSpeed(symbolIndex, false, true)
     }
   }
 
@@ -56,13 +59,18 @@ export const clickHandling = (smallKeys) => {
   return symbolIndex
 };
 
-export const setIntervalId = setInterval(() => {
-  let symbolIndex = +sessionStorage.getItem('symbolIndex')
 
-  if (symbolIndex > 0) {
-    netAverageSpeed(symbolIndex, false)
-  }
-}, 1);
+export const startInterval = () => {
+  let setIntervalId = setInterval(() => {
+    let symbolIndex = +sessionStorage.getItem('symbolIndex')
+    if (symbolIndex > 0) {
+      netAverageSpeed(symbolIndex, false, true)
+    }
+  }, 1);
+
+  sessionStorage.setItem('intervalId', setIntervalId)
+
+}
 
 let sumErrors = 0
 // Функция показывает сумму ошибок

@@ -1,49 +1,45 @@
 
-export const upperCaseHandler = (e) => {
 
+export const capsHandler = (e, systemCaps) => {
   if (!e.repeat) {
-    keySwapColor(e, false);
-  }
 
-  const checkSystemCaps = e.getModifierState('CapsLock')
-  if (e.code === 'CapsLock' || checkSystemCaps) {
-    const lowerCase = document.getElementById('Digit1').getElementsByTagName('div')[0].childNodes[0].textContent === '1'
-    const upperCase = document.getElementById('Digit1').getElementsByTagName('div')[0].childNodes[0].textContent === '!'
+    const showKeyboard = document.getElementById('showKeyboard')
 
-    if (upperCase) {
-      document.getElementById('showKeyboard').classList.toggle('text__transform');
-      swapSymbols(false);
-    }
+    const checkClass = showKeyboard.classList.contains('text__transform')
 
-    if (lowerCase) {
-      document.getElementById('showKeyboard').classList.toggle('text__transform');
-      swapSymbols(true);
-    }
-  }
-}
+    const checkShift = e.code !== 'ShiftLeft' && e.code !== 'ShiftRight'
 
+    if (checkShift) {
 
+      if (systemCaps) {
 
-export const keySwapColor = (e, timer) => {
+        showKeyboard.classList.add('text__transform')
+        swapSymbols(systemCaps)
 
-  for (let key of document.querySelectorAll('.row i')) {
-    if (key.id === e.code) {
-      if (timer) {
-        setTimeout(() => {
-          key.getElementsByTagName('div').item(0).classList.toggle('clickSwapColor');
-        }, 35)
-      } else {
-        key.getElementsByTagName('div').item(0).classList.toggle('clickSwapColor')
+      } else if (!systemCaps) {
+
+        showKeyboard.classList.remove('text__transform')
+        swapSymbols(systemCaps)
+
       }
-    }
-    if (key.id === e.code && (e.code === 'ShiftLeft' || e.code === 'ShiftRight')) {
-      document.getElementById('showKeyboard').classList.toggle('text__transform');
-      swapSymbols(true);
+    } else {
+      if (checkClass) {
+
+        showKeyboard.classList.remove('text__transform')
+        swapSymbols(false)
+
+      } else {
+
+        showKeyboard.classList.add('text__transform')
+        swapSymbols(true)
+      }
     }
   }
 }
 
 export const swapSymbols = (checkShift) => {
+
+
   let changeableKeys = [
     'Digit1',
     'Digit2',
@@ -62,7 +58,7 @@ export const swapSymbols = (checkShift) => {
   let secondTypeOfKeys = ['!', '"', '№', ';', '%', ':', '?', '*', '(', ')', '_', '+', ','];
   let firstTypeOfKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', '.'];
   let i = 0;
-  
+
   changeableKeys.forEach(
     (x) =>
     (document.getElementById(x).getElementsByTagName('div')[0].childNodes[0].textContent = `${checkShift ? secondTypeOfKeys[i++] : firstTypeOfKeys[i++]
