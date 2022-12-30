@@ -9,8 +9,10 @@ export const getRandomText = () => {
 
  document.getElementById('textLength').textContent = randomText.length
 
+
+
  randomText.forEach((x) =>
- selectedText.insertAdjacentHTML('beforeend', `<span class="whiteTxt">${x}</span>`),
+ selectedText.insertAdjacentHTML('beforeend', `<span >${x}</span>`),
  );
 }
 

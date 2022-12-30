@@ -1,7 +1,7 @@
 import { getRandomText } from "./_randomText.js";
 import { generateKeyboard } from "./_keyboard.js";
-import { clickHandling, startInterval, errorCounter } from "./_keyUp.js";
-import { inputСharСolor } from './_charColors.js'
+import { clickHandling, errorCounter } from "./_keyUp.js";
+import { inputСharСolor, keySwapColor } from './_charColors.js'
 import { netAverageSpeed } from "./_speed.js";
 import { capsHandler } from "./_keyDown.js";
 import { validation, switchCaseValidation } from "./_codeValidation.js";
@@ -19,6 +19,9 @@ sessionStorage.setItem('intervalId', true)
 
 document.getElementById('closePanel').addEventListener('click', (e) => {
   document.getElementById('closePanel').style.display = 'none';
+
+  document.getElementById('textPanelInput').style.display = 'block'
+  document.getElementById('textPanelInput').focus()
 
   document.getElementById('errors').textContent = 0;
   document.getElementById('speed__min').textContent = 0;
@@ -49,10 +52,13 @@ document.getElementById('closePanel').addEventListener('click', (e) => {
 
     const systemCaps = e.getModifierState('CapsLock')
 
-
     if (caseValidation) {
       capsHandler(e, systemCaps)
     }
+
+
+
+    keySwapColor(e)
 
   });
 
@@ -61,9 +67,11 @@ document.getElementById('closePanel').addEventListener('click', (e) => {
     const valid = validation(e.code)
     const caseValidation = switchCaseValidation(e.code)
 
+
     if (valid) {
       clickHandling(e.code)
     }
+
 
     const systemCaps = e.getModifierState('CapsLock')
 
@@ -71,9 +79,9 @@ document.getElementById('closePanel').addEventListener('click', (e) => {
       capsHandler(e, systemCaps)
     }
 
+    keySwapColor(e)
+
   });
-
-
 })
 
 // При нажатие на кнопку обновления сбрасывает все необходимые данные для работы с текстом
@@ -96,6 +104,7 @@ restartText.addEventListener('click', (e) => {
 
   sessionStorage.setItem('symbolIndex', 0);
   sessionStorage.setItem('intervalId', true)
+
   netAverageSpeed(0, true, false)
   errorCounter(0, true)
 
@@ -103,12 +112,13 @@ restartText.addEventListener('click', (e) => {
 
   getRandomText()
 
-  upperCaseHandler(e)
+  const systemCaps = e.getModifierState('CapsLock')
+  systemCaps ? capsHandler(e, systemCaps, true) : null
 
   inputСharСolor(0);
 
 });
 
 window.onkeydown = function (e) {
-  return !(e.keyCode == 32 || e.keyCode === 9 || e.keyCode === 18);
+  return !(e.keyCode === 9 || e.keyCode === 18);
 };

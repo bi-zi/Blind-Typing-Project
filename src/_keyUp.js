@@ -6,9 +6,17 @@ import { netAverageSpeed } from "./_speed.js";
 
 export const clickHandling = (smallKeys) => {
   let symbolIndex = +sessionStorage.getItem('symbolIndex');
+  const text = document.getElementById('myList')
+
   let keyboardStyle = ''
   // классу "selectedText" находит символ или букву по индексу
   let textSymbol = selectedText.childNodes[symbolIndex].textContent;
+
+  const value = document.getElementById('textPanelInput').value
+
+  if (value.length === 10) document.getElementById('textPanelInput').value = ''
+
+  // console.log([...text.childNodes].filter(x => x.className !== 'green__background'))
 
   if (sessionStorage.intervalId) startInterval()
 
@@ -18,9 +26,9 @@ export const clickHandling = (smallKeys) => {
 
   // Обрабатывает символы и присваивает новый класс правильный символ = зеленый фон, неправильный красный и отсылает символ индекс чтобы можно было менять цвет для следующего символа на желтый
   if (
-    smallKeys != 'ShiftLeft' &&
-    smallKeys != 'Space' &&
-    smallKeys != 'CapsLock'
+    smallKeys !== 'ShiftLeft' &&
+    smallKeys !== 'Space' &&
+    smallKeys !== 'CapsLock'
   ) {
     let charFromKeyboard = document
       .getElementById(smallKeys)

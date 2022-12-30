@@ -90,18 +90,10 @@ export const inputСharСolor = (symbolIndex) => {
 
 
 
-export const keySwapColor = (e, timer) => {
+export const keySwapColor = (e) => {
   const key = document.getElementById(e.code)
 
-  if (key !== null) {
-    if (timer) {
-
-      setTimeout(() => {
-        key.getElementsByTagName('div').item(0).classList.toggle('clickSwapColor');
-      }, 35)
-
-    } else {
-      key.getElementsByTagName('div').item(0).classList.toggle('clickSwapColor')
-    }
+  if (!e.repeat && key !== null) {
+     key.getElementsByTagName('div').item(0).classList.toggle('clickSwapColor');
   }
 }

@@ -167,8 +167,6 @@ h6 {
   color: black;
 }
 
-/* Board */
-
 .text-panel__board {
   padding: 0 1vw 1vh 1vw;
 
@@ -211,6 +209,16 @@ h6 {
 .text-panel__board-main-text {
   font-size: 24px;
   color: black;
+}
+
+.text-panel__input input {
+  display: none;
+  margin: 2vh 0;
+
+  width: 100%;
+  height: 3vh;
+
+  font-size: 24px;
 }
 
 /* Results */
