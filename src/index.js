@@ -1,10 +1,10 @@
-import { getRandomText } from "./_randomText.js";
-import { generateKeyboard } from "./_keyboard.js";
-import { clickHandling, errorCounter } from "./_keyUp.js";
-import { inputСharСolor, keySwapColor } from './_charColors.js'
-import { netAverageSpeed } from "./_speed.js";
-import { capsHandler } from "./_keyDown.js";
-import { validation, switchCaseValidation } from "./_codeValidation.js";
+import { getRandomText } from "./randomText.js";
+import { generateKeyboard } from "./keyboard.js";
+import { clickHandling, errorCounter } from "./keyUp.js";
+import { inputСharСolor, keySwapColor } from './charColors.js'
+import { netAverageSpeed } from "./speed.js";
+import { capsHandler } from "./keyDown.js";
+import { validation, switchCaseValidation } from "./codeValidation.js";
 
 document.getElementById('showGuide').addEventListener('click', () => {
   document.getElementById('headerGuide').style.display = 'block';
@@ -20,7 +20,7 @@ sessionStorage.setItem('intervalId', true)
 document.getElementById('closePanel').addEventListener('click', (e) => {
   document.getElementById('closePanel').style.display = 'none';
 
-  document.getElementById('textPanelInput').style.display = 'block'
+  // document.getElementById('textPanelInput').style.display = 'block'
   document.getElementById('textPanelInput').focus()
 
   document.getElementById('errors').textContent = 0;

@@ -1,6 +1,6 @@
-import { inputСharСolor } from "./_charColors.js";
-import { selectedText } from "./_randomText.js";
-import { netAverageSpeed } from "./_speed.js";
+import { inputСharСolor } from "./charColors.js";
+import { selectedText } from "./randomText.js";
+import { netAverageSpeed } from "./speed.js";
 
 
 

@@ -1,5 +1,5 @@
-import { netAverageSpeed } from "./_speed.js";
-import { selectedText } from "./_randomText.js";
+import { netAverageSpeed } from "./speed.js";
+import { selectedText } from "./randomText.js";
 
 
 export const results = (symbolIndex) => {

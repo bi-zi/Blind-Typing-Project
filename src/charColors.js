@@ -1,5 +1,5 @@
-import { selectedText } from "./_randomText.js";
-import { results } from "./_results.js";
+import { selectedText } from "./randomText.js";
+import { results } from "./results.js";
 
 export const inputСharСolor = (symbolIndex) => {
 
@@ -94,6 +94,6 @@ export const keySwapColor = (e) => {
   const key = document.getElementById(e.code)
 
   if (!e.repeat && key !== null) {
-     key.getElementsByTagName('div').item(0).classList.toggle('clickSwapColor');
+    key.getElementsByTagName('div').item(0).classList.toggle('clickSwapColor');
   }
 }

@@ -223,17 +223,23 @@ h6 {
 
 /* Results */
 .results {
-  width: 800px;
-  height: 232px;
+  display: flex;
+  position: absolute;
+
+
+  width: 1020px;
+  height: 200px;
+
+  top: 260px;
+
   border-radius: 15px;
-  position: relative;
-  bottom: 560px;
-  left: -30px;
 
   font-size: 24px;
-  background-color: #000000;
-  display: flex;
+
   justify-content: space-around;
+  background-color: #000000;
+
+  z-index: 999;
 }
 
 .speed {
